@@ -26,9 +26,14 @@ A lightning-fast, zero-dependency CLI tool for syncing encrypted `.env` files ac
 
 ## 📦 Installation
 
-`scure-vault` is a standalone binary. You do **not** need to install Go, Node, or Python to use it.
+`scure-vault` is a standalone CLI tool. Choose the installation method that best fits your operating system below.
 
-**Mac / Linux (Homebrew):**
-```bash
-brew tap yourusername/tap
-brew install scure-vault
+### Option 1: Go Install (Recommended for Windows)
+The most reliable way to install `scure-vault` across all platforms, especially on Windows, is using the Go toolchain. This compiles the binary directly on your machine, bypassing strict OS security blockers (like Windows Smart App Control) that flag unsigned internet downloads.
+
+**Prerequisite:** You must have [Go installed](https://go.dev/doc/install).
+
+1. Run the following command in your terminal:
+   ```bash
+   go install [github.com/Vbroendum/scure-vault/cmd/scure-vault@latest](https://github.com/Vbroendum/scure-vault/cmd/scure-vault@latest)
+   ```
