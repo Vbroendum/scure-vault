@@ -37,3 +37,20 @@ The most reliable way to install `scure-vault` across all platforms, especially 
    ```bash
    go install [github.com/Vbroendum/scure-vault/cmd/scure-vault@latest](https://github.com/Vbroendum/scure-vault/cmd/scure-vault@latest)
    ```
+
+### Option 2: Homebrew (macOS / Linux)
+
+If you are on a Mac or Linux machine with Homebrew, you can install the pre-compiled binary in seconds.
+
+  Add the custom tap and install the tool:
+    
+  ```Bash
+
+  brew tap Vbroendum/homebrew-tap
+  brew install scure-vault
+  ```
+    
+  Verify the installation:
+  ```Bash
+  scure-vault
+  ```
