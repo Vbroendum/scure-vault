@@ -1,0 +1,59 @@
+version: 2
+project_name: scure-vault
+
+# 1. Compile the code for Mac, Windows, and Linux
+builds:
+  - main: ./cmd/scure-vault/main.go
+    binary: scure-vault
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+# 2. Package them into ZIPs and Tarballs
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
+
+# 3. Native Linux Packages (.deb for Ubuntu, .rpm for CentOS)
+nfpms:
+  - file_name_template: '{{ .ProjectName }}_{{ .Arch }}'
+    homepage: "https://github.com/Vbroendum/scure-vault"
+    description: "A lightning-fast CLI for syncing encrypted .env files safely."
+    maintainer: "Vbroendum"
+    formats:
+      - deb
+      - rpm
+
+# 4. Homebrew (macOS / Linux)
+brews:
+  - repository:
+      owner: Vbroendum
+      name: homebrew-tap
+      token: "{{ .Env.GITHUB_TOKEN }}"
+    directory: Formula
+    homepage: "https://github.com/Vbroendum/scure-vault"
+    description: "A lightning-fast CLI for syncing encrypted .env files safely."
+
+# 5. Scoop (Windows)
+scoops:
+  - repository:
+      owner: Vbroendum
+      name: scoop-bucket
+      token: "{{ .Env.GITHUB_TOKEN }}"
+    directory: bucket
+    homepage: "https://github.com/Vbroendum/scure-vault"
+    description: "A lightning-fast CLI for syncing encrypted .env files safely."
