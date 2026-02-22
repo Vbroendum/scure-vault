@@ -3,7 +3,7 @@ project_name: scure-vault
 
 # 1. Compile the code for Mac, Windows, and Linux
 builds:
-  - main: .
+  - main: ./cmd/scure-vault
     binary: scure-vault
     env:
       - CGO_ENABLED=0
