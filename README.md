@@ -22,7 +22,7 @@ A lightning-fast, zero-dependency CLI tool for syncing encrypted `.env` files ac
 └─────────────────┘                    └▶│  Teammate's PC  │ (Decrypted locally)
   (Stays Local)                          └─────────────────┘
 
----
+```
 
 ## 📦 Installation
 
